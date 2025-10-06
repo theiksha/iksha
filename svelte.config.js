@@ -2,7 +2,6 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	preprocess: [
 		vitePreprocess(),
@@ -15,10 +14,13 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html' // 👈 this is the important line
+			fallback: 'index.html'
 		}),
+		paths: {
+			base: '/iksha' // 👈 IMPORTANT for GitHub Pages
+		},
 		prerender: {
-			handleHttpError: 'warn' // optional, skips 404 warnings
+			handleHttpError: 'warn'
 		}
 	}
 };
