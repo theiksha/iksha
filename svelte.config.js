@@ -2,34 +2,27 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
+const dev = process.env.NODE_ENV === 'development';
+
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
-	// Allow Svelte + Markdown + SVX files
 	extensions: ['.svelte', '.svx', '.md'],
-
-	// Preprocessors for mdsvex and vite
 	preprocess: [
 		vitePreprocess(),
 		mdsvex({
 			extensions: ['.svelte', '.md', '.svx']
 		})
 	],
-
 	kit: {
-		// Static adapter for GitHub Pages
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
 			fallback: 'index.html',
-			strict: false // avoids "dynamic routes" errors
+			strict: false
 		}),
-
-		// 👇 IMPORTANT for GitHub Pages — your repo name
 		paths: {
-			base: '/iksha'
+			base: '/iksha' // ✅ must match your repo name
 		},
-
-		// Avoid build breaking on HTTP fetch errors
 		prerender: {
 			handleHttpError: 'warn'
 		}
