@@ -1,0 +1,1 @@
+import{s as o}from"./scheduler.xfufyxDa.js";import{S as a,i as e}from"./index.B4bzAh1_.js";const s={title:"INDICA Online Courses_Kavya",date:"27 February 2025",link:"https://indica.courses/enroll/cohort/introduction-to-kavya/",description:"Explore the rich tradition of Kavya!"};class l extends a{constructor(t){super(),e(this,t,null,null,o,{})}}export{l as default,s as metadata};
