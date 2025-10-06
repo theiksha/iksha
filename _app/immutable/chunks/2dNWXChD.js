@@ -1,0 +1,1 @@
+import{S as t,i as a,s as n}from"./D7YcGEbA.js";import"./IHki7fMi.js";const r={title:"Nitividhana Public Policy Program",date:"2024-10-01T00:00:00.000Z",link:"https://www.brhat.in/programs/nitividhana",description:"Immersive learning program in civilizational public policy"};class s extends t{constructor(i){super(),a(this,i,null,null,n,{})}}export{s as default,r as metadata};

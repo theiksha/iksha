@@ -1,0 +1,1 @@
+import{S as a,i as o,s as t}from"./D7YcGEbA.js";import"./IHki7fMi.js";const r={title:"Call for Papers for Inaugural Issue of Journal of IKS",date:"2024-11-01T00:00:00.000Z",link:"/journal",description:"Journal of Indian Knowledge Systems, expected in Feb/Mar 2025"};class i extends a{constructor(e){super(),o(this,e,null,null,t,{})}}export{i as default,r as metadata};
