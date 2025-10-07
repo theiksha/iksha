@@ -17,11 +17,11 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html',
+			fallback: 'index.html', // ✅ ensures SPA works
 			strict: false
 		}),
 		paths: {
-			base: '/iksha' // ✅ must match your repo name
+			base: dev ? '' : '/iksha' // ✅ your repo name, no trailing slash
 		},
 		prerender: {
 			handleHttpError: 'warn'
