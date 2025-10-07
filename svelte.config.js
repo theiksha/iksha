@@ -4,7 +4,6 @@ import { mdsvex } from 'mdsvex';
 
 const dev = process.env.NODE_ENV === 'development';
 
-/** @type {import('@sveltejs/kit').Config} */
 const config = {
 	extensions: ['.svelte', '.svx', '.md'],
 	preprocess: [
@@ -17,15 +16,12 @@ const config = {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html', // ✅ ensures SPA works
-			strict: false
+			fallback: 'index.html'
 		}),
 		paths: {
-			base: dev ? '' : '/iksha' // ✅ your repo name, no trailing slash
+			base: dev ? '' : '/iksha'
 		},
-		prerender: {
-			handleHttpError: 'warn'
-		}
+		prerender: { handleHttpError: 'warn' }
 	}
 };
 
