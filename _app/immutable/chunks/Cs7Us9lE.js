@@ -1,0 +1,1 @@
+import{S as e,i as a,s as n}from"./D7YcGEbA.js";import"./IHki7fMi.js";const l={title:"PM-YUVA-3.0",date:"2025-03-11T00:00:00.000Z",link:"https://innovateindia.mygov.in/yuva-2025/",description:"IKS is one among the 3 themes of PM Yuva 3.0"};class m extends e{constructor(t){super(),a(this,t,null,null,n,{})}}export{m as default,l as metadata};

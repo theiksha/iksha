@@ -1,0 +1,6 @@
+import{S as o,i as r,s as d,e as l,a as c,m,f as g,g as p,n,d as h}from"../chunks/D7YcGEbA.js";import"../chunks/IHki7fMi.js";function u(s){let e,a=`<div class="column xcenter rgap32"><img class="diya svelte-j0mv3v" src="/images/ik2.png" alt="diya"/> <div class="column rgap16 ta-c mleft"><h1>Welcome to the IKS and Heritage Association (IKSHA)</h1> <p class="themed">Preserving and promoting Indian Knowledge Systems.</p> <p>The IKSHA is a non-profit organization dedicated to preserving and promoting India&#39;s rich
+				cultural heritage and knowledge system. IKSHA aims to document, conserve, and disseminate
+				India&#39;s ancient wisdom, including its traditional sciences, arts, and philosophies. The
+				association also works to promote intercultural understanding and exchange between India and
+				other countries. By preserving India&#39;s knowledge system and heritage, IKSHA seeks to empower
+				future generations with a deeper understanding of their cultural roots and values.</p></div></div>`;return{c(){e=l("div"),e.innerHTML=a,this.h()},l(t){e=c(t,"DIV",{class:!0,"data-svelte-h":!0}),m(e)!=="svelte-pg8i9z"&&(e.innerHTML=a),this.h()},h(){g(e,"class","padded column container100vh withfooter ycenter rgap32")},m(t,i){p(t,e,i)},p:n,i:n,o:n,d(t){t&&h(e)}}}class I extends o{constructor(e){super(),r(this,e,null,u,d,{})}}export{I as component};
