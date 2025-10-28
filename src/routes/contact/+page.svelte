@@ -2,4 +2,7 @@
   <h1>Contact Us</h1>
   <p>If you have any questions, feel free to reach out to us via email. We look forward to hearing from you!</p>
   <p><b>Email:</b> contact@theiksha.org</p>
-</div>
+   <p><b>Phone:</b> <a href="+919611896059">+91 96118 96059</a></p>   
+
+   </div>
+  

@@ -2,26 +2,23 @@ import adapter from '@sveltejs/adapter-static';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
 
-const dev = process.env.NODE_ENV === 'development';
-
 const config = {
 	extensions: ['.svelte', '.svx', '.md'],
-	preprocess: [
-		vitePreprocess(),
-		mdsvex({
-			extensions: ['.svelte', '.md', '.svx']
-		})
-	],
+	preprocess: [vitePreprocess(), mdsvex({ extensions: ['.svelte', '.md', '.svx'] })],
 	kit: {
 		adapter: adapter({
 			pages: 'build',
 			assets: 'build',
-			fallback: 'index.html'
+			fallback: 'index.html',
+			strict: false
 		}),
 		paths: {
-			base: dev ? '' : '/iksha'
+			base: '', // ✅ empty for theiksha.org
+			assets: ''
 		},
-		prerender: { handleHttpError: 'warn' }
+		prerender: {
+			handleHttpError: 'warn'
+		}
 	}
 };
 
