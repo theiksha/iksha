@@ -19,6 +19,92 @@
     <link rel="stylesheet" href="css/custom.css">
     <!-- Modernizr -->
     <script src="js/vendor/modernizr-2.8.3.min.js"></script>
+
+    <style>
+        /* ===== Base Dropdown Structure ===== */
+        .primary-nav .menu-item {
+            position: relative;
+        }
+
+        /* === Main dropdown === */
+        .primary-nav .sub-menu {
+            display: none;
+            position: absolute;
+            background-color: #fff;
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+            top: 100%;
+            left: 0;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 999;
+        }
+
+        /* === Dropdown list items === */
+        .primary-nav .sub-menu li {
+            font-size: 15px;
+            line-height: 1.4;
+            position: relative;
+        }
+
+        /* === Dropdown links === */
+        .primary-nav .sub-menu li a {
+            display: block;
+            padding: 8px 15px;
+            color: #000;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color 0.2s ease, background-color 0.2s ease;
+        }
+
+        /* === Hover effects === */
+        .primary-nav .sub-menu li a:hover {
+            color: #F5943A;
+            background-color: #f9f9f9;
+        }
+
+        /* === Show submenu on hover === */
+        .primary-nav .menu-item-has-children:hover>.sub-menu {
+            display: block;
+        }
+
+        /* === Nested submenu (AAC 2025) === */
+        .primary-nav .sub-submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background-color: #fff;
+            list-style: none;
+            padding: 5px 0;
+            margin: 0;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            z-index: 1000;
+        }
+
+        /* === Show nested submenu on hover === */
+        .primary-nav .sub-menu .menu-item-has-children:hover>.sub-submenu {
+            display: block;
+        }
+
+        /* === Optional: subtle visual separation === */
+        .primary-nav .sub-menu li+li {
+            border-top: 1px solid #f1f1f1;
+        }
+
+        /* === Responsive tweak (prevents overflow on small screens) === */
+        @media (max-width: 991px) {
+
+            .primary-nav .sub-menu,
+            .primary-nav .sub-submenu {
+                position: static;
+                box-shadow: none;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -42,8 +128,8 @@
             <div class="site-branding">
                 <!-- For Image Logo -->
                 <!-- <a href="index.html" class="custom-logo-link">
-              <img src="img/logo.png" alt="" class="custom-logo">
-            </a> -->
+                <img src="img/logo.png" alt="" class="custom-logo">
+                </a> -->
                 <!-- For Site Title -->
                 <span class="site-title">
                     <a href="index.html"><img src="./img/iksha-logo.png" alt="" class="avatar"
@@ -52,18 +138,38 @@
             </div>
             <nav class="primary-nav">
                 <ul class="primary-nav-list nav">
-                    <li class="menu-item menu-item-has-children current-menu-ancestor current-menu-parent active"><a
-                            href="https://www.theiksha.org">HOME</a></li>
+                    <li class="menu-item active"><a href="https://www.theiksha.org">HOME</a></li>
                     <li class="menu-item"><a href="https://www.theiksha.org/about">ABOUT</a></li>
                     <li class="menu-item"><a href="https://www.theiksha.org/diiksha/index.html">DIIKSHA</a></li>
-                    <li class="menu-item"><a href="https://www.theiksha.org/Conferencepage/index.html">CONFERENCES</a>
+
+                    <!-- Conferences Dropdown -->
+                    <li class="menu-item ">
+                        <a href="https://www.theiksha.org/conference/">CONFERENCE</a>
+                        <ul class="sub-menu">
+                            <li><a href="https://www.theiksha.org/conference/">AAC 2026</a></li>
+
+                            <!-- AAC 2025 Nested Dropdown -->
+                            <li class="menu-item"> <a href="https://www.theiksha.org/conference/aac2025/">AAC 2025</a>
+                                <ul class="sub-menu sub-submenu">
+                                    <li><a href="https://www.theiksha.org/conference/aac2025/about.html">About</a></li>
+                                    <li><a href="https://www.theiksha.org/conference/aac2025/papersubmission.html">Paper
+                                            Submission</a></li>
+                                    <li><a href="https://www.theiksha.org/conference/aac2025/schedule.html">Schedule</a>
+                                    </li>
+                                    <li><a
+                                            href="https://theiksha.org/Documents/AAC_on_IKS_Brochure_2025.pdf">Brochure</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
                     </li>
-                    <li class="menu-item"><a href="https://www.theiksha.org/sangama">SANGAMA </a></li>
+                    <li class="menu-item"><a href="https://www.theiksha.org/sangama">SANGAMA</a></li>
                     <li class="menu-item"><a href="https://www.theiksha.org/journal">JOURNAL</a></li>
-                    <li class="menu-item"><a href="https://www.theiksha.org/events">IKS NEWS AND EVENTS </a></li>
+                    <li class="menu-item"><a href="https://www.theiksha.org/events">IKS NEWS AND EVENTS</a></li>
                     <li class="menu-item"><a href="https://www.theiksha.org/contact">CONTACT</a></li>
                 </ul>
             </nav>
+
         </div><!-- .header-wrap -->
     </header>
     <!-- End Site Header -->
@@ -75,14 +181,8 @@
                 <h1>DIIKSHA <br>
                     <h4> </h4>
                 </h1>
-                <!-- <h3>AWESOME THEMEZ PRESENT NON-PROFIT SITE</h3>
-				<h5>Donation and help us for homeless people.We are a organization that helps for children people.</h5>
-				<div class="hero-btn-group">
-                    <a href="" class="t-btn hero-btn-1">DONATE NOW</a>
-					<a href="" class="t-btn hero-btn-2">LEARN MORE</a>
-				</div> -->
             </div>
-        </div><!-- .single-slide -->
+        </div>
         <div class="hero-slider owl-carousel">
             <img src="./img/bg-image.jpg" alt="">
         </div>
@@ -109,12 +209,12 @@
                         (Doctoral Initiative of IKS and Heritage Association).</p>
 
                     <!-- <h2 class="empty-30" style="color: black;">Reinvigorating Indian Intellectual Traditions</h2>
-                <h4 class="text-title" style="color: black;">A Proposal for Developing Scholars to Articulate, Teach, and Transmit Indian Knowledge Systems</h3>
-                <p>The current perception of the Indian higher education system, as depicted in both popular and academic literature, is marked by terms such as “decline,” “disarray,” and “crisis.” This proposal aims to address the existing challenges, particularly in the realm of humanities, social sciences and issues concerning Indian civilization by fostering a new generation of scholars capable of articulating, teaching, and transmitting Indian Knowledge System effectively.</p>
-                <h4 class="text-title" style="color: black;">Study of Indian Knowledge System today and its Challenges</h4>
-                <p>The Vaidyanathan Report and the Fourth Review Committee Report on the Indian Council of Social Science Research (ICSSR) bring attention to the inadequate quality of social science research and the dismal state of higher education institutions in general. Despite an increase in social science research, the quality of output and its contribution to understanding socio-economic processes are considered insufficient. The current discourse in humanities, social sciences, and discussions about Indian civilization often perpetuates Orientalist descriptions. There has been little progress in transitioning from the reproduction of European cultural experiences to a scientifically reflective examination of the Indian experience. The expansive domain of the Indian Knowledge System is currently labeled as a form of heritage or nationalistic sentiment, lacking significance or relevance. Furthermore, it is alleged to be treated as something regressive and contrary to progress.</p>
-                <h4 class="text-title" style="color: black;">Proposed Institutional Framework</h4>
-                <p>To overcome these challenges, a new institutional space is proposed, focusing on India with emphasis on Indian Knowledge System (IKS) (or any other name deemed appropriate). This initiative seeks to incubate young intellectual minds within selected institutions, fostering a scientific approach to the study of Indian civilization that aligns with Adhyatma.</p> -->
+                    <h4 class="text-title" style="color: black;">A Proposal for Developing Scholars to Articulate, Teach, and Transmit Indian Knowledge Systems</h3>
+                    <p>The current perception of the Indian higher education system, as depicted in both popular and academic literature, is marked by terms such as “decline,” “disarray,” and “crisis.” This proposal aims to address the existing challenges, particularly in the realm of humanities, social sciences and issues concerning Indian civilization by fostering a new generation of scholars capable of articulating, teaching, and transmitting Indian Knowledge System effectively.</p>
+                    <h4 class="text-title" style="color: black;">Study of Indian Knowledge System today and its Challenges</h4>
+                    <p>The Vaidyanathan Report and the Fourth Review Committee Report on the Indian Council of Social Science Research (ICSSR) bring attention to the inadequate quality of social science research and the dismal state of higher education institutions in general. Despite an increase in social science research, the quality of output and its contribution to understanding socio-economic processes are considered insufficient. The current discourse in humanities, social sciences, and discussions about Indian civilization often perpetuates Orientalist descriptions. There has been little progress in transitioning from the reproduction of European cultural experiences to a scientifically reflective examination of the Indian experience. The expansive domain of the Indian Knowledge System is currently labeled as a form of heritage or nationalistic sentiment, lacking significance or relevance. Furthermore, it is alleged to be treated as something regressive and contrary to progress.</p>
+                    <h4 class="text-title" style="color: black;">Proposed Institutional Framework</h4>
+                    <p>To overcome these challenges, a new institutional space is proposed, focusing on India with emphasis on Indian Knowledge System (IKS) (or any other name deemed appropriate). This initiative seeks to incubate young intellectual minds within selected institutions, fostering a scientific approach to the study of Indian civilization that aligns with Adhyatma.</p> -->
                 </div><!-- .col -->
                 <div class="col-lg-4">
                     <div class="video-section">
@@ -124,9 +224,9 @@
                         </div>
                         <!-- For Vimeo -->
                         <!-- <div class="embed-responsive embed-responsive-16by9">
-                        <iframe class="embed-responsive-item" width="816" height="458" src="https://player.vimeo.com/video/172077385?title=0&byline=0&portrait=0&color=EE5A3F&autoplay=0&loop=0&wmode=transparent" allowfullscreen>
-                        </iframe>
-                    </div> -->
+                            <iframe class="embed-responsive-item" width="816" height="458" src="https://player.vimeo.com/video/172077385?title=0&byline=0&portrait=0&color=EE5A3F&autoplay=0&loop=0&wmode=transparent" allowfullscreen>
+                            </iframe>
+                        </div> -->
                     </div>
                 </div><!-- .col -->
             </div>
@@ -138,47 +238,47 @@
     <!-- End Reinvigorating Indian Intellectual Traditions Section -->
     <!-- Start Feature Section -->
     <!-- <section class="feature section black-bg text-center">
-        <div class="container w-100">
-            <h2 class="empty-30">Implementation  Strategy</h2>  
-            <div class="row flex">
-                <div class="col-sm-2">
-                    <div class="single-feature">
-                        <img src="./img/network-icon.png">
-                        <h3>Incremental<br> Expansion</h3>
-                        <p>Initiate with a limited number of supervisors and gradually expand the network.</p>
+            <div class="container w-100">
+                <h2 class="empty-30">Implementation  Strategy</h2>  
+                <div class="row flex">
+                    <div class="col-sm-2">
+                        <div class="single-feature">
+                            <img src="./img/network-icon.png">
+                            <h3>Incremental<br> Expansion</h3>
+                            <p>Initiate with a limited number of supervisors and gradually expand the network.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-feature">
-                        <img src="./img/dialogue-icon.png">
-                        <h3>Constant<br> Dialogue</h3>
-                        <p> Establish forums for constant training and dialogue for supervisors and advisors.</p>
+                    <div class="col-sm-2">
+                        <div class="single-feature">
+                            <img src="./img/dialogue-icon.png">
+                            <h3>Constant<br> Dialogue</h3>
+                            <p> Establish forums for constant training and dialogue for supervisors and advisors.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-feature">
-                        <img src="./img/temple-hindu-icon.png">
-                        <h3>Central<br> Coordination</h3>
-                        <p>A central body will coordinate activities and manage collaborations with institutions.</p>
+                    <div class="col-sm-2">
+                        <div class="single-feature">
+                            <img src="./img/temple-hindu-icon.png">
+                            <h3>Central<br> Coordination</h3>
+                            <p>A central body will coordinate activities and manage collaborations with institutions.</p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-feature">
-                        <img src="./img/bulb-icon.png">
-                        <h3>Resource<br> Mobilization</h3>
-                        <p>Utilize resources from institutions like IITs, IIMs, and other public institutions. </p>
+                    <div class="col-sm-2">
+                        <div class="single-feature">
+                            <img src="./img/bulb-icon.png">
+                            <h3>Resource<br> Mobilization</h3>
+                            <p>Utilize resources from institutions like IITs, IIMs, and other public institutions. </p>
+                        </div>
                     </div>
-                </div>
-                <div class="col-sm-2">
-                    <div class="single-feature">
-                        <img src="./img/rupee-icon.png">
-                        <h3>Structured <br> Funding</h3>
-                        <p>Develop plans for mobilizing funds and creating a structure to  facilitate the initiative. </p>
+                    <div class="col-sm-2">
+                        <div class="single-feature">
+                            <img src="./img/rupee-icon.png">
+                            <h3>Structured <br> Funding</h3>
+                            <p>Develop plans for mobilizing funds and creating a structure to  facilitate the initiative. </p>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section> -->
+        </section> -->
     <!-- End Feature Section -->
     <!-- Start Call for Research Proposals Section -->
     <section class="about section" id="">
@@ -483,7 +583,8 @@
                                         applications, a letter from their institution confirming <strong>enrollment and
                                             support.</strong></li>
                                     <li><strong>Work Plan and Timeline:</strong> A detailed schedule, ideally as a
-                                        <strong>Gantt chart</strong> (timeline with milestones).</li>
+                                        <strong>Gantt chart</strong> (timeline with milestones).
+                                    </li>
                                 </ol>
                                 <h5 style="color: black;" class="">Stream-Specific Requirements</h5>
                                 <ul>
@@ -526,7 +627,8 @@
                                     <strong>IKSHA’s internal committee,</strong> with external experts consulted as
                                     needed.<br>
                                     Applicants may be required to <strong>revise their proposals</strong> or
-                                    <strong>provide additional details</strong> based on reviewer feedback.</p>
+                                    <strong>provide additional details</strong> based on reviewer feedback.
+                                </p>
                             </div>
                         </div><!-- .single-accordian -->
                         <div class="single-accordian">
@@ -552,14 +654,17 @@
                                 <ul>
                                     <li><strong>Year 1: </strong>Complete coursework (new students only).</li>
                                     <li><strong>Year 2: </strong>Submit <strong>approved proposal;</strong> present
-                                        <strong>one conference paper</strong> and a <strong>book review.</strong></li>
+                                        <strong>one conference paper</strong> and a <strong>book review.</strong>
+                                    </li>
                                     <li><strong>Year 3: </strong>Submit <strong>one review paper</strong> and
-                                        <strong>one journal paper.</strong></li>
+                                        <strong>one journal paper.</strong>
+                                    </li>
                                     <li><strong>Year 4:</strong> Publish <strong>one paper</strong>, submit another,
                                         finalize <strong>thesis</strong>, and present at <strong>two
                                             conferences.</strong></li>
                                     <li><strong>Year 5:</strong> Publish a <strong>second paper,</strong> submit
-                                        <strong>thesis,</strong> and conduct an <strong>outreach workshop.</strong></li>
+                                        <strong>thesis,</strong> and conduct an <strong>outreach workshop.</strong>
+                                    </li>
                                     <li>Any <strong>other specific outcomes</strong> beyond those listed must be clearly
                                         stated before commencement of the fellowship.</li>
                                 </ul>
@@ -617,13 +722,13 @@
                             </div>
                         </div><!-- .single-accordian -->
                         <!-- <div class="single-accordian">
-                            <h3 class="accordian-head">Contact Information</h3>
-                            <div class="accordian-body">
-                                <p>For questions or assistance, contact:</p>
-                                <p><strong>Email: </strong><a href="diiksha@theiksha.org">diiksha@theiksha.org</a></p>
-                                <p><strong>Website: </strong><a href="https://www.theiksha.org/diiksha">https://www.theiksha.org/diiksha</a></p>
-                            </div>
-                        </div> -->
+                                <h3 class="accordian-head">Contact Information</h3>
+                                <div class="accordian-body">
+                                    <p>For questions or assistance, contact:</p>
+                                    <p><strong>Email: </strong><a href="diiksha@theiksha.org">diiksha@theiksha.org</a></p>
+                                    <p><strong>Website: </strong><a href="https://www.theiksha.org/diiksha">https://www.theiksha.org/diiksha</a></p>
+                                </div>
+                            </div> -->
                         <!-- .single-accordian -->
                     </div>
                 </div>

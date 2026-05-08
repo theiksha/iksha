@@ -37,7 +37,7 @@
 <script>
   import { onMount } from "svelte";
 
-  let conferenceURL = "/conference/"; // Your actual conference page
+  let conferenceURL = "/conference/conference2025/index.html"; // Your actual conference page
 
   onMount(() => {
     window.location.href = conferenceURL; // Redirects the user immediately

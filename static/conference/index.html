@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conference</title>
+    <link rel="stylesheet" href="./conferencestyles/styles.css">
+    <link rel="icon" type="image/png" href="./conferenceimages/favicon.png">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+    <style>
+        /* ===== Base Styles ===== */
+        .navbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            padding: 10px 120px;
+            position: relative;
+            z-index: 1000;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            height: auto;
+        }
+
+        .left-logo {
+            width: 120px;
+        }
+
+        .right-logo {
+            width: 120px;
+        }
+
+        /* ===== Menu Styles ===== */
+        nav {
+            flex-direction: row;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            align-items: center;
+
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: #000;
+
+            display: block;
+            font-weight: 500;
+        }
+
+        /* ===== Dropdown ===== */
+        .has-submenu {
+            position: relative;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            background: white;
+            list-style: none;
+            top: 100%;
+            left: 0;
+            min-width: 150px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 0;
+            margin: 0;
+            z-index: 100;
+        }
+
+        .submenu li a {
+            padding: 10px 15px;
+            color: #000;
+        }
+
+        .submenu li a:hover {
+            color: #F5943A;
+        }
+
+        /* Show dropdown on hover (desktop) */
+        .has-submenu:hover .submenu {
+            display: block;
+        }
+
+        /* ===== Hamburger Button ===== */
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer;
+            user-select: none;
+            font-weight: bold;
+        }
+
+        /* === Register Section === */
+        .register-section {
+            background-color: #F5943A;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .register-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .register-container h3 {
+            color: #ffffff;
+            font-size: 24px;
+            font-weight: 600;
+            flex: 1;
+            margin: 0;
+        }
+
+        /* === Button Style === */
+        .register-btn {
+            background-color: #ffffff;
+            color: #F5943A;
+            padding: 15px 50px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .register-btn:hover {
+            background-color: #ffffff;
+            color: #F5943A;
+            transform: scale(1.05);
+        }
+
+        /* ===== Mobile Styles ===== */
+        @media (max-width: 768px) {
+
+            .overlay {
+                padding: 0px;
+                text-align: center;
+                align-items: center;
+            }
+
+            /* Show hamburger */
+            .menu-toggle {
+                display: block;
+            }
+
+            /* Stack logo and menu toggle */
+            .navbar {
+                justify-content: space-between;
+            }
+
+            .navbar {
+                padding: 10px 20px;
+            }
+
+            .nav-right {
+                display: none;
+            }
+
+            .nav-menu li {
+                margin: 5px 0;
+                width: 100%;
+            }
+
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                background: white;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                right: 0;
+                text-align: center;
+                padding: 20px 0;
+                border-top: 1px solid #eee;
+            }
+
+            .nav-menu.active {
+                display: flex;
+            }
+
+            /* Disable hover dropdown on mobile */
+            .has-submenu:hover .submenu {
+                display: none;
+            }
+
+            .submenu {
+                position: relative;
+
+                box-shadow: none;
+            }
+
+            .submenu li a {
+                padding-left: 30px;
+            }
+
+            .has-submenu>a::after {
+                content: " ▼";
+                font-size: 12px;
+            }
+
+            .left-logo {
+                width: 100px;
+            }
+
+            .about {
+                padding: 0px;
+            }
+
+            #about {
+                padding: 0px;
+            }
+
+            .about-container {
+
+                gap: 20px;
+                display: grid;
+            }
+
+            .register-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .register-container h3 {
+                font-size: 1.4rem;
+            }
+
+            .register-btn {
+                padding: 15px 60px;
+                margin-top: 15px;
+            }
+        }
+
+        /* ===== Nested Dropdown (AAC 2025 submenu) ===== */
+        .dropdown-sub {
+            position: relative;
+        }
+
+        .dropdown-submenu {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 100%;
+            background: white;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            min-width: 180px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        /* Show nested submenu on hover (desktop) */
+        .dropdown-sub:hover>.dropdown-submenu {
+            display: block;
+        }
+
+        /* Links inside nested submenu */
+        .dropdown-submenu li a {
+            display: block;
+            padding: 10px 15px;
+            color: #000;
+            text-decoration: none;
+        }
+
+        .dropdown-submenu li a:hover {
+
+            color: #F5943A;
+        }
+
+        /* Optional arrow indicator */
+        .dropdown-sub>a::after {
+
+            font-size: 12px;
+        }
+
+        .dropdown-sub:hover>a::after {}
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <!-- Left Logo -->
+        <div class="nav-left">
+            <img src="./conferenceimages/iksha-logo.png" alt="Left Logo" class="logo left-logo">
+        </div>
+
+        <!-- Hamburger Icon (mobile only) -->
+        <div class="menu-toggle" id="menu-toggle">
+            <i class="fa-solid fa-bars"></i>
+            <i class="fa-solid fa-xmark" style="display: none;"></i>
+        </div>
+
+        <!-- Navigation Menu -->
+        <ul class="nav-menu" id="nav-menu">
+            <li><a href="https://www.theiksha.org/">HOME</a></li>
+            <li><a href="https://www.theiksha.org/about/">ABOUT</a></li>
+            <li><a href="https://www.theiksha.org/diiksha/">DIIKSHA</a></li>
+
+            <!-- ===== CONFERENCE with Submenu ===== -->
+            <li class="menu-item has-submenu">
+                <a href="https://www.theiksha.org/conference/">CONFERENCE</a>
+                <ul class="submenu">
+                    <li><a href="https://www.theiksha.org/conference/">AAC 2026</a></li>
+
+                    <!-- ===== AAC 2025 Nested Submenu ===== -->
+                    <li class="menu-item dropdown-sub">
+                        <a href="https://www.theiksha.org/conference/aac2025/">AAC 2025</a>
+                        <ul class="dropdown-submenu">
+                            <li><a href="https://www.theiksha.org/conference/aac2025/about.html">About</a></li>
+                            <li><a href="https://www.theiksha.org/conference/aac2025/papersubmission.html">Paper
+                                    Submission</a>
+                            </li>
+                            <li><a href="https://www.theiksha.org/conference/aac2025/schedule.html">Schedule</a></li>
+                            <li><a href="https://theiksha.org/documents/AAC_on_IKS_Brochure_2025.pdf">Brochure</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+
+            <li><a href="https://www.theiksha.org/sangama/">SANGAMA</a></li>
+            <li><a href="https://www.theiksha.org/journal/">JOURNAL</a></li>
+            <li><a href="https://www.theiksha.org/events/">IKS NEWS AND EVENTS</a></li>
+            <li><a href="https://www.theiksha.org/contact/">CONTACT</a></li>
+        </ul>
+
+        <!-- Right Logo (visible only on desktop) -->
+        <div class="nav-right">
+            <img src="./conferenceimages/logo-left.png" alt="Right Logo" class="logo right-logo">
+        </div>
+    </nav>
+
+
+    <!-- Landing Page -->
+    <header id="home">
+        <div class="background">
+            <div class="overlay">
+                <h3>-- Call for Papers --</h3>
+                <h1 style="color: #F5943A;">Second Annual Academic Conference</h1>
+                <h3>on Indian Knowledge Systems</h3>
+                <div>
+                    <h3 style="border-top: 1px solid #F5943A;    border-bottom: 1px solid #F5943A;
+    padding: 25px 0px;">IKS: Re-Weaving the Threads of Knowledge</h3>
+                </div>
+            </div>
+        </div>
+
+    </header>
+    <div class="" style="background-color: #F5943A; justify-content: center;
+    display: flex;">
+
+        <p style="font-size: 20px; color: #ffffff;">24-26 July, 2026 | Gautam Buddha University, Greater Noida, Uttar
+            Pradesh</p>
+
+    </div>
+    <!-- Intro Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="column">
+                <h2 style="color:black; ">Introduction</h2>
+                <p style="text-align: justify;">Indian Knowledge Systems (IKS) encompass a vast knowledge inventory of
+                    intellectual traditions of and
+                    from India. In short, it stands for the knowledge nuggets developed and pursued in India. These
+                    traditions encompass diverse fields ranging from epistemic inquiries to engineering sciences. These
+                    knowledge frameworks, tools and systems, evolved and developed over several millennia, offer unique
+                    insights into the human condition, the natural world, and the pursuit of knowledge itself.<br><br>
+
+                    Recently, studies in IKS have seen an emergence. The First Annual Academic Conference on Indian
+                    Knowledge Systems held in July 2025 at New Delhi saw an enthusiastic participation of almost 450
+                    scholars who presented their work and discussed various aspects of IKS.<br><br>
+
+
+                </p>
+                <div class="about-container">
+                    <div class="column" style="">
+
+                        <a style="background-color: #F5943A;
+    color: white;
+    padding: 20px 90px;" href="#theme" class="learn-more">Themes</a>
+
+                    </div>
+                    <div class="column">
+
+                        <a style="background-color: #F5943A;
+    color: white;
+    padding: 20px 70px;" href="#submission" class="learn-more">Submissions</a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="column">
+                <img style="
+    width: 100%;
+    height: auto;
+" src="./conferenceimages/intro-image.jpg" alt="About Conference">
+            </div>
+
+
+        </div>
+    </section>
+    <!-- End Intro Section -->
+    <div style="justify-content: center; display: flex;">
+        <div style="width: 80%; border: 0.5px solid gray;"></div>
+    </div>
+    <!-- Venue Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="column">
+                <img style="
+    width: 100%;
+    height: auto;
+        margin-top: 40px;
+" src="./conferenceimages/venue-image.jpg" alt="About Conference">
+            </div>
+            <div class="column">
+                <h2 style="color:black; ">About Venue</h2>
+                <p style="text-align: justify;">
+                    Gautam Buddha University (NAAC B+Accredited) was established in 2002 (Uttar Pradesh Act). It is
+                    located on a 511-acre eco-friendly residential campus in Greater Noida. The University offers
+                    professional programmes in various fields such as Law, Management etc. and maintains high academic
+                    and quality standards, further affirmed by its ISO 9001:2008 certification.<br><br>
+
+                    Inspired by India’s rich civilizational legacy and the inclusive vision of Gautam Buddha, the
+                    University integrates human values, ethical understanding, and holistic development into its
+                    academic mission. Dedicated centres such as the School of Buddhist Studies & Civilization and the
+                    Center of Linguistics and Culture Studies actively promote research in classical Indian thought,
+                    culture, languages, and knowledge traditions.<br><br>
+
+                    With an emphasis on interdisciplinary learning and a commitment to nurturing intellectually engaged
+                    and socially responsible individuals, GBU fosters an academic climate where ancient Indian insights
+                    can dialogue with contemporary scholarship. Its open, research-driven environment makes it an ideal
+                    venue for national and international initiatives in Indian Knowledge Systems (IKS).
+
+
+                </p>
+                <div class="about-container">
+                    <div class="column">
+
+                        <a style="background-color: #F5943A; color: white; padding: 20px 40px;"
+                            href="https://www.gbu.ac.in/" class="learn-more">Visit Website</a>
+
+                    </div>
+                    <div class="column">
+
+                        <a style="background-color: #F5943A; color: white; padding: 20px 30px;" href="#dates"
+                            class="learn-more">Important Dates</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End Venue Section -->
+
+    <div style="justify-content: center; display: flex;">
+        <div style="width: 80%; border: 0.5px solid gray;"></div>
+    </div>
+    <!-- Aim Section -->
+    <section id="about">
+        <div class="about-container">
+            <div class="column">
+                <h2 style="color:black; ">Aims</h2>
+                <p style="text-align: justify;">The aim of this Second Annual Conference on Indian Knowledge Systems is
+                    to promote worthy research scholarship in IKS and cultivate the next generation of scholars in this
+                    domain.<br><br>
+
+                    IKS scholars are invited to submit their work. After acceptance from an established team of
+                    reviewers, the scholars will be given a chance to present their work orally or through posters at
+                    the conference. In addition, the conference will host invited plenary talks and panel discussions.
+                    In sum, the conference will provide a fertile space for meaningful discourses in IKS among
+                    academicians, senior scholars, young career academics, journal editors and reviewers, to
+                    flourish.<br><br>
+
+                    The stakeholders from industry, government and civil society organizations will also be presenting
+                    their works to foster greater collaborations and offer ideas for potential joint projects that may
+                    have direct relevance.
+
+                </p>
+            </div>
+            <div class="column">
+                <h2 style="color:black; ">Objectives</h2>
+                <p style="text-align: left;">
+                <ul>
+                    <li>Recognize rich and rigorous scholarship in IKS domain</li><br>
+
+                    <li> Provide a forum for academicians, researchers, scholars and practitioners to present their
+                        scholarship and engage in intellectual dialogue surrounding IKS</li><br>
+
+                    <li>Encourage academic research and publication in the field of IKS</li><br>
+
+                    <li>Help develop new frameworks, theories and creative applications in IKS domain to address
+                        contemporary challenges</li><br>
+
+                    <li>Encourage cross-disciplinary collaboration and joint research projects in IKS as well as with
+                        other fields</li><br>
+
+                    <li>Cultivate a new generation of scholars in IKS and develop their networks with senior mentors
+                    </li><br>
+
+                </ul>
+
+                </p>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- End Aim Section -->
+
+    <!-- Themes Section -->
+    <section id="theme" class="about" style="background-image: url(./conferenceimages/theme-bg.jpg); background-repeat: no-repeat;
+  background-size: cover;">
+        <div class="about-container">
+            <div class="column" style="background: none;">
+                <h2 style="color:white; ">Themes</h2>
+                <p style="color:white;">
+                <ol style="color:white;">
+                    <li>Darśana</li><br>
+                    <li>Nītiśāstra, Arthaśāstra, Dharmaśāstra, etc.</li><br>
+                    <li>Itihāsa and Purāṇa</li><br>
+                    <li>Jyotiṣa (mathematics)</li><br>
+                    <li>Science and Engineering</li><br>
+                    <li>Society and culture</li><br>
+                    <li>Linguistics, Vyākaraṇa, etc.</li><br>
+                    <li>Āyurveda (medical sciences)</li><br>
+                    <li>Arts</li><br>
+                    <li>Architecture</li><br>
+                    <li>Any other</li><br>
+                </ol>
+
+                <p style="color:white;"> We encourage papers in other related areas of discipline
+                    as well.</p>
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- End Themes Section -->
+
+    <!-- Submission Section -->
+    <section id="submission" class="about">
+        <div class="about-container">
+            <div class="column">
+                <h2 style="color:black; ">Submission of Papers</h2>
+                <p style="text-align: justify;">Papers will be selected through a rigorous peer-review process. Scholars
+                    are requested to submit full-length papers through an online portal in the prescribed format (double
+                    blind format).<br><br>
+
+                    The language of submission is English. Only accepted papers will be presented in the conference
+                    through either oral mode or as posters.<br><br>
+
+                    The decision of the review committee will be final.<br><br>
+
+                    Applications need to be submitted in an online form.<br><br>
+
+                    For any clarification, please write to us at <a href="mailto:conference@theiksha.org">
+                        conference@theiksha.org</a><br><br>
+
+                <p style="background-color: yellow;">(please do not send your submissions on this email, use only the <a
+                        href="https://forms.gle/XyT9LVQN2YtYQ4Ec7"> form to submit</a>).</p><br>
+
+                <b>Selected candidates will be considered for travel reimbursement and accommodation upon
+                    availability of funds. There will be a nominal conference fee for scholars who are not students
+                    and are employed in regular jobs.</b>
+
+                </p>
+            </div>
+            <div class="column" id="dates">
+                <h2 style="color:black; ">Important Dates</h2>
+                <p style="text-align: justify;">
+                    <b>01 November 2025:</b> Announcement of the Call for Papers<br><br>
+
+                    <b>10 January 2026:</b> Submission of extended abstract (1000 words which indicates theoretical
+                    framework, methods, results and discussion with a small indicative bibliography and this
+                    bibliography will not be counted in word limits). <a
+                        href="./conferenceimages/Paper-Submission-Guidelines.doc" target="_blank"> Download Abstract
+                        Format</a><br><br>
+
+                    <b>31 January to 10 February 2026:</b> Communication of acceptance of
+                    abstract for full papers
+                    <br><br>
+
+                    <b>15 May 2026:</b> Submission of Full Papers in the template provided (around up to around 10
+                    pages or around 8000 words of content excluding tables, figures, appendix, references) in IKSHA
+                    Journal format.<a
+                        href="https://brill.com/view/journals/jiks/jiks-overview.xml?language=en&srsltid=AfmBOor7hTFVmRPtjAzydf185N5rL1TFN5f-WL7e-SL0hy3PWzQu8CKb&contents=journaltoc"
+                        target="_blank">Check
+                        Details</a>
+                    <br><br>
+
+                    <b>15 June 2026: </b>Acceptance Announcement<br><br>
+
+                    <b>24-26 July 2026:</b> Conference Date
+                </p>
+            </div>
+
+
+        </div>
+    </section>
+    <!-- End Submission Section -->
+
+    <!-- Register Section -->
+    <section id="Register" class="register-section">
+        <div class="register-container">
+            <h3>Register now to be a part of an Indic intellectual renaissance.</h3>
+            <a href="https://forms.gle/XyT9LVQN2YtYQ4Ec7" target="_blank" class="register-btn">
+                Register Now
+            </a>
+        </div>
+    </section>
+
+
+    <!-- End Register Section -->
+
+    <!-- Footer -->
+    <footer style="background-color: #ffffff;">
+        <div class="footer-container" style="justify-content: center;">
+            <img style="width: 30%; height: auto;" src="./conferenceimages/logo-left.png" alt="Left Logo" class="logo">
+        </div>
+    </footer>
+
+    <script>
+        // Toggle main burger menu
+        const menuToggle = document.getElementById('menu-toggle');
+        const navMenu = document.getElementById('nav-menu');
+        const submenuParents = document.querySelectorAll('.has-submenu > a');
+
+        menuToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Handle submenu toggle on mobile
+        submenuParents.forEach(link => {
+            link.addEventListener('click', (e) => {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault(); // Prevent link navigation
+                    const parent = link.parentElement;
+                    const submenu = parent.querySelector('.submenu');
+
+                    // Toggle submenu visibility
+                    if (submenu.style.display === 'block') {
+                        submenu.style.display = 'none';
+                    } else {
+                        // Close other open submenus
+                        document.querySelectorAll('.submenu').forEach(s => s.style.display = 'none');
+                        submenu.style.display = 'block';
+                    }
+                }
+            });
+        });
+    </script>
+
+
+
+</body>
+
+
+</html>

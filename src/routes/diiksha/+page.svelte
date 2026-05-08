@@ -14,7 +14,7 @@
 
   onMount(() => {
     if (typeof window !== "undefined") {
-      window.location.replace("/diiksha/index.html"); // Ensures a proper redirect
+      window.location.replace("/diiksha/"); // Ensures a proper redirect
     }
   });
 </script>

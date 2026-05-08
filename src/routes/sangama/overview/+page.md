@@ -1,4 +1,4 @@
-# Saṅgama - IKSHA Conclave
+# Saṅgama - IKSHA Confluence
 
 <div class="bordbot"></div>
 
@@ -18,7 +18,7 @@ A system is built with specific constituent blocks. The IKS Division, MoE define
 
 ###### Towards this, we look to create these institutional vehicles-
 
-- International Conclave - continued engagement of key stakeholders
+- International confluence - continued engagement of key stakeholders
 - Pool of 108 PhD scholars - direct research that is future forming
 - An academic journal for IKS - creating a knowledge based discourse
 - Public outreach - galvanize mental, intellectual, philosophical and economic resources
@@ -29,9 +29,9 @@ A system is built with specific constituent blocks. The IKS Division, MoE define
 
 <div class="width70 column rgap16">
 
-#### Saṅgama - the Conclave
+#### Saṅgama - the Confluence
 
-The international conclave is being conceptualized as the first intervention that will generate the ecosystem that we are talking about. A crucible that will allow for bearing forward of civilizational cognition across generations.
+The international confluence is being conceptualized as the first intervention that will generate the ecosystem that we are talking about. A crucible that will allow for bearing forward of civilizational cognition across generations.
 
 1. **To facilitate** the emergence of the IKS ecosystem, both nationally and globally.
 2. **To identify** and gather as many institutions, foundations, platforms, initiatives as well as individuals who are making important contributions for the enhancement of the BKS field.
@@ -42,7 +42,7 @@ The international conclave is being conceptualized as the first intervention tha
 7. It could **attempt to bring together efforts** in IKS space, by various government institutions.
 8. **To involve** publishing houses interested in promoting IKS literature
 9. **To engage** persons of different backgrounds and expertise who share keen interest in IKS, such as spiritual leaders, technology experts, business leaders, and bureaucrats.
-10. **A group of institutional leaders** (eg: Vice-chancellors, Directors, Deans etc) who could lead building consortium of institutions to support academic initiatives such as creation of 108 PhD’s, international journals, hosting academic conferences etc.
+10. **A group of institutional leaders** (eg: Vice-chancellors, Directors, Deans etc) who could lead building consortium of institutions to support academic initiatives such as creation of 108 PhD’s, international journals, hosting academic confluences etc.
 11. **To ensure involvement** of senior thought-leaders and strategic thinkers
 12. **To enhance awareness** of a sense of the breadth and depth of current level of resources and efforts, so as to strengthen the confidence and motivation amongst the community of IKS stakeholders
 
@@ -75,7 +75,7 @@ If we were to attempt to understand this and arrive at a foundational basis for 
 2. The subtle body (sukshma sarira) of the nation corresponds to the manomaya (the mind) and the vijnanamaya (the intellect) koshas which is the seat of the nation's aspirations, culture, literature, philosophy etc.
 3. Finally the causal body (karana sarira) of the nation corresponds to the anandamaya kosha (bliss sheath) which defines its unique temperament, the source of Consciousness behind all the higher intellectual and creative life of the nation.
 
-Anchored on this foundational understanding, IKSHA intends to conceptualize and coordinate the following 5 vectors which then also gives us the list of stakeholders to imagine and design our conclave:
+Anchored on this foundational understanding, IKSHA intends to conceptualize and coordinate the following 5 vectors which then also gives us the list of stakeholders to imagine and design our confluence:
 
 1. Economic (Annamaya)
 2. Political (Pranamaya)
@@ -129,6 +129,6 @@ It represents academic leadership that is being called upon to reverse the gaze,
 
 We must be cognizant of the fact that the parents and learners are at the center of academia's offerings. Hence academia must endeavor to dialogue with parents to help them understand why we need to rethink what education is. It must design electives, pedagogy and competencies with deep empathy for the learners.
 
-The anandamaya kosha is the sacred core that is self-illumining. It is the seat of the highest of Consciousness, joy, harmony and integration. It is the root of all human quest and therefore the central goal of knowledge systems in the dharmika worldview. IKSHA through its conclave aims to engage these 4 stakeholders and enable their collective service for a Bharata that is self-sufficient, generates surplus for universal well-being and recognizes what its living traditions have to offer.
+The anandamaya kosha is the sacred core that is self-illumining. It is the seat of the highest of Consciousness, joy, harmony and integration. It is the root of all human quest and therefore the central goal of knowledge systems in the dharmika worldview. IKSHA through its confluence aims to engage these 4 stakeholders and enable their collective service for a Bharata that is self-sufficient, generates surplus for universal well-being and recognizes what its living traditions have to offer.
 
 </div>
