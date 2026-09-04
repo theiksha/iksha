@@ -1,0 +1,1 @@
+import{S as a,i as s,s as e}from"./CcjytrNp.js";import"./IHki7fMi.js";const r={title:"INDICA Mysuru Yoga Utsava",date:"12 December 2024",link:"https://mysuruyogautsava.com/",description:"Join and celebrate the timeless spirit of Yoga!"};class u extends a{constructor(t){super(),s(this,t,null,null,e,{})}}export{u as default,r as metadata};

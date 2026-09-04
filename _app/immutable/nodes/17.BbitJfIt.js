@@ -1,0 +1,1 @@
+import{S as o,i as t,s,x as a}from"../chunks/CcjytrNp.js";import"../chunks/IHki7fMi.js";let r="/aac2027";function c(n){return a(()=>{window.location.href=r}),[]}class u extends o{constructor(e){super(),t(this,e,c,null,s,{})}}export{u as component};
