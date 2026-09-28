@@ -35,11 +35,11 @@
 
 <!----NEW SCRIPT FOR DIRECT PAGE LOADS---->
 <script>
-  import { onMount } from "svelte";
+	import { onMount } from 'svelte';
 
-  let conferenceURL = "/conference/"; // Your actual conference page
+	let conferenceURL = '/Conferencepage/index.html'; // Your actual conference page
 
-  onMount(() => {
-    window.location.href = conferenceURL; // Redirects the user immediately
-  });
+	onMount(() => {
+		window.location.href = conferenceURL; // Redirects the user immediately
+	});
 </script>
