@@ -1,0 +1,1 @@
+import{S as o,i as t,s,x as a}from"../chunks/CcjytrNp.js";import"../chunks/IHki7fMi.js";let c="/conference/aac2025/";function r(e){return a(()=>{window.location.replace(c)}),[]}class p extends o{constructor(n){super(),t(this,n,r,null,s,{})}}export{p as component};

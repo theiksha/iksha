@@ -1,0 +1,1 @@
+import{S as t,i as e,s}from"./CcjytrNp.js";import"./IHki7fMi.js";const d={image:"./images/sastric-wisdom-image.jpeg",title:"Sastric Wisdom and Indian Pedagogy",date:"27 Jan 2026",description:"A renowned Sanskrit Scholar and the founder Ācārya of Srīvidyā Pathasalā."};class r extends t{constructor(a){super(),e(this,a,null,null,s,{})}}export{r as default,d as metadata};
