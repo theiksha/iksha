@@ -1,0 +1,1 @@
+import{R as o}from"../chunks/CYgJF_JY.js";import"../chunks/B17Q6ahh.js";function r(e,t){throw new o(e,t.toString())}function n(){throw r(307,"/Documents/Sangama_2023.pdf")}const c=Object.freeze(Object.defineProperty({__proto__:null,load:n},Symbol.toStringTag,{value:"Module"}));export{c as universal};
