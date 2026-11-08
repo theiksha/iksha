@@ -38,7 +38,7 @@
   flex: 1;
   max-width: 40%;
   height: 80vh; /* Adjust image height */
-  background: url('/Conferencepage/conferenceimages/theme.jpg') no-repeat center center/cover;
+  background: url('../conferenceimages/theme.jpg') no-repeat center center/cover;
   border-radius: 10px;
 }
 

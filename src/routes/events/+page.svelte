@@ -1,9 +1,7 @@
 <script lang="ts">
-  import { onMount } from 'svelte'
-  import { allEvents } from '$lib/utils/localpulls'
+  import type { PageData } from './$types';
 
-  let events: any = [];
-  let latest: any = null;
+  export let data: PageData;
 
   function getEventTimestamp(item: any) {
     const candidates = [
@@ -13,30 +11,23 @@
       item?.meta?.timestamp,
       item?.isoDate,
       item?.formattedDate
-    ]
+    ];
 
     for (const c of candidates) {
-      if (!c) continue
-      if (typeof c === 'number') return c
-      if (c instanceof Date) return c.getTime()
-      const parsed = Date.parse(String(c))
-      if (!Number.isNaN(parsed)) return parsed
+      if (!c) continue;
+      if (typeof c === 'number') return c;
+      if (c instanceof Date) return c.getTime();
+      const parsed = Date.parse(String(c));
+      if (!Number.isNaN(parsed)) return parsed;
     }
 
-    return 0
+    return 0;
   }
 
-  onMount(() => {
-    (async () => {
-      events = await allEvents();
-      events = [...events];
-      events.sort((a: any, b: any) => getEventTimestamp(b) - getEventTimestamp(a))
-      latest = events.length > 0 ? events[0] : null
-    })()
-  })
-
-
-  $: if (events && events.length) latest = events[0]
+  $: events = (data.events ? [...data.events] : []).sort(
+    (a: any, b: any) => getEventTimestamp(b) - getEventTimestamp(a)
+  );
+  $: latest = events.length > 0 ? events[0] : null;
 </script>
 
 <style>
@@ -82,7 +73,7 @@
     width: 100%;
     margin-top: 80px;
     height: 280px;            
-    background-image: url('https://theiksha.org/diiksha/img/bg-image.jpg'); 
+    background-image: url('/images/bg-image.jpg'); 
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

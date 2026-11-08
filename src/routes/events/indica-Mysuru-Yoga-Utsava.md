@@ -1,4 +1,5 @@
 ---
+image: /images/indicayoga.jpg
 title: INDICA Mysuru Yoga Utsava
 date: 12 December 2024
 link: https://mysuruyogautsava.com/

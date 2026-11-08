@@ -1,4 +1,5 @@
 ---
+image: /images/HA.jpeg
 title: INDICA Online Courses_Hindu Aesthetics
 date: 25 February 2025
 link: https://indica.courses/enroll/cohort/hindu-aesthetics-an-introduction/

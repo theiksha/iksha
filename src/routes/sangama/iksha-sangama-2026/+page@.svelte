@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { slide } from 'svelte/transition';
 
 	function scrollToSection(id: string) {
 		const el = document.getElementById(id);
@@ -7,6 +8,65 @@
 			el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 		}
 	}
+
+	let openFaqIndex: number | null = null;
+
+	function toggleFaq(index: number) {
+		openFaqIndex = openFaqIndex === index ? null : index;
+	}
+
+	const faqs = [
+		{
+			question: 'What is Saṅgama 2026?',
+			answer:
+				'Saṅgama 2026 is an international confluence organised under IKSHA, bringing together scholars, institutions, practitioners, policymakers, industry leaders and cultural organisations to strengthen the Indian Knowledge Systems (IKS) ecosystem through dialogue, collaboration and collective action.'
+		},
+		{
+			question: 'When and where will Saṅgama 2026 take place?',
+			answer:
+				'Saṅgama 2026 will be held from 25–27 December 2026 at Amritapuri, Kollam, Kerala, India.'
+		},
+		{
+			question: 'Who can participate in Saṅgama 2026?',
+			answer:
+				'The confluence welcomes academicians, researchers, educators, students, traditional knowledge practitioners, institutional leaders, cultural organisations, industry professionals, policymakers and individuals interested in advancing Indian Knowledge Systems.'
+		},
+		{
+			question: 'What is the primary objective of Saṅgama?',
+			answer:
+				'Saṅgama aims to build a collaborative national and global IKS ecosystem by connecting diverse stakeholders, identifying existing strengths and gaps, encouraging knowledge exchange and enabling meaningful institutional partnerships.'
+		},
+		{
+			question: 'What can participants expect from the confluence?',
+			answer:
+				'Participants can look forward to engaging discussions, interactions with scholars and thought leaders, exposure to ongoing IKS initiatives and opportunities to explore collaborations across education, research, culture, policy and industry.'
+		},
+		{
+			question: 'What makes Saṅgama different from a conventional academic conference?',
+			answer:
+				'Saṅgama goes beyond academic discussions to bring together diverse knowledge traditions, institutions and sectors. It seeks to foster sustained relationships and collaborative initiatives that can contribute to the long-term development of the IKS ecosystem.'
+		},
+		{
+			question: 'What are the key areas of focus at Saṅgama?',
+			answer:
+				'The confluence brings together five interconnected dimensions of the IKS ecosystem: economic, political/policy, cultural, philosophical/intellectual and spiritual, drawing inspiration from the Pañcakośa framework.'
+		},
+		{
+			question: 'How can I register for Saṅgama 2026?',
+			answer:
+				'Registrations open on <strong>11 October 2026</strong> and close on <strong>11 November 2026</strong>. Interested participants can register through the official website:<br /><a href="https://theiksha.org/sangama/iksha-sangama-2026" class="faq-link">https://theiksha.org/sangama/iksha-sangama-2026</a>'
+		},
+		{
+			question: 'Can institutions and organisations participate?',
+			answer:
+				'Yes. Universities, research institutions, gurukulas, foundations, cultural organisations, publishing houses and other initiatives working in the IKS space are encouraged to participate and explore opportunities for collaboration.'
+		},
+		{
+			question: 'What are the long-term outcomes envisioned through Saṅgama?',
+			answer:
+				'Saṅgama seeks to catalyse sustained institutional engagement, collaborative research, academic publications, a proposed network of 108 PhD scholars and wider public outreach to strengthen the Indian Knowledge Systems ecosystem.'
+		}
+	];
 </script>
 
 <svelte:head>
@@ -82,7 +142,7 @@
 					<div class="detail-item">
 						<span class="detail-currency">₹</span>
 						<div class="detail-text-multiline">
-							<span class="detail-bold">₹1,000 per delegate (all inclusive)</span>
+							<span class="detail-bold">₹500 per delegate (all inclusive)</span>
 							<span class="detail-sub"
 								>Conference access, accommodation (twin/triple sharing), and all meals</span
 							>
@@ -401,7 +461,7 @@
 						style="text-decoration: none; text-align: center; display: block;"
 						>Start Registration Form</a
 					>
-					<span class="deadline-text">Applications close on 30 November 2026</span>
+					<span class="deadline-text">Applications close on 11 November 2026</span>
 
 					<div class="info-alert-box">
 						<svg
@@ -521,6 +581,56 @@
 					rel="noreferrer"
 					class="travel-guide-btn">View Detailed Travel Guide</a
 				>
+			</div>
+		</div>
+	</section>
+
+	<!-- Frequently Asked Questions -->
+	<section id="faq" class="faq-section">
+		<div class="section-container">
+			<h2 class="section-title">Frequently Asked Questions</h2>
+
+			<div class="faq-accordion-list">
+				{#each faqs as faq, index}
+					<div class="faq-item" class:open={openFaqIndex === index}>
+						<button
+							type="button"
+							class="faq-question-btn"
+							on:click={() => toggleFaq(index)}
+							aria-expanded={openFaqIndex === index}
+							aria-controls="faq-ans-{index}"
+							id="faq-btn-{index}"
+						>
+							<span class="faq-q-number">{index + 1}.</span>
+							<span class="faq-question-text">{faq.question}</span>
+							<span class="faq-icon" aria-hidden="true">
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+								>
+									<polyline points="6 9 12 15 18 9" />
+								</svg>
+							</span>
+						</button>
+						{#if openFaqIndex === index}
+							<div
+								id="faq-ans-{index}"
+								class="faq-answer-wrapper"
+								role="region"
+								aria-labelledby="faq-btn-{index}"
+								transition:slide={{ duration: 250 }}
+							>
+								<div class="faq-answer-content">
+									{@html faq.answer}
+								</div>
+							</div>
+						{/if}
+					</div>
+				{/each}
 			</div>
 		</div>
 	</section>
@@ -1324,6 +1434,159 @@
 			flex-direction: column;
 			align-items: center;
 			text-align: center;
+		}
+	}
+
+	/* === FAQ Section === */
+	.faq-section {
+		padding: 80px 0 100px 0;
+		background-color: var(--sangama-card-bg);
+		border-top: 1px solid var(--sangama-border);
+	}
+
+	.faq-accordion-list {
+		max-width: 860px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: column;
+		gap: 14px;
+	}
+
+	.faq-item {
+		background-color: #ffffff;
+		border: 1px solid var(--sangama-border);
+		border-radius: 12px;
+		overflow: hidden;
+		transition:
+			border-color 0.2s ease,
+			box-shadow 0.2s ease;
+	}
+
+	.faq-item:hover {
+		border-color: #d4c4b5;
+		box-shadow: 0 4px 16px rgba(44, 37, 32, 0.05);
+	}
+
+	.faq-item.open {
+		border-color: var(--sangama-gold);
+		box-shadow: 0 6px 20px rgba(150, 105, 60, 0.08);
+	}
+
+	.faq-question-btn {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		gap: 16px;
+		padding: 20px 24px;
+		background: none;
+		border: none;
+		text-align: left;
+		cursor: pointer;
+		color: var(--sangama-charcoal);
+		font-family: inherit;
+		transition: background-color 0.2s ease;
+	}
+
+	.faq-item.open .faq-question-btn {
+		background-color: rgba(251, 248, 244, 0.7);
+	}
+
+	.faq-q-number {
+		font-family: 'Playfair Display', serif;
+		font-weight: 700;
+		font-size: 1.15rem;
+		color: var(--sangama-gold);
+		flex-shrink: 0;
+		min-width: 24px;
+	}
+
+	.faq-question-text {
+		font-family: 'Playfair Display', serif;
+		font-size: 1.15rem;
+		font-weight: 600;
+		line-height: 1.45;
+		color: var(--sangama-charcoal);
+		flex: 1;
+	}
+
+	.faq-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 32px;
+		height: 32px;
+		border-radius: 50%;
+		background-color: var(--sangama-gold-light);
+		color: var(--sangama-gold);
+		flex-shrink: 0;
+		transition:
+			transform 0.25s cubic-bezier(0.4, 0, 0.2, 1),
+			background-color 0.2s ease,
+			color 0.2s ease;
+	}
+
+	.faq-icon svg {
+		width: 18px;
+		height: 18px;
+	}
+
+	.faq-item.open .faq-icon {
+		transform: rotate(180deg);
+		background-color: var(--sangama-gold);
+		color: #ffffff;
+	}
+
+	.faq-answer-wrapper {
+		border-top: 1px solid var(--sangama-border);
+		background-color: #ffffff;
+	}
+
+	.faq-answer-content {
+		padding: 20px 24px 24px 64px;
+		font-size: 1rem;
+		color: var(--sangama-muted);
+		line-height: 1.7;
+	}
+
+	.faq-answer-content :global(strong) {
+		font-weight: 600;
+		color: var(--sangama-charcoal);
+	}
+
+	.faq-answer-content :global(.faq-link) {
+		color: var(--sangama-gold);
+		text-decoration: underline;
+		word-break: break-all;
+		font-weight: 500;
+		transition: color 0.2s ease;
+	}
+
+	.faq-answer-content :global(.faq-link:hover) {
+		color: var(--sangama-gold-hover);
+	}
+
+	@media screen and (max-width: 768px) {
+		.faq-section {
+			padding: 60px 0 80px 0;
+		}
+
+		.faq-question-btn {
+			padding: 16px 18px;
+			gap: 12px;
+		}
+
+		.faq-question-text {
+			font-size: 1.05rem;
+		}
+
+		.faq-q-number {
+			font-size: 1rem;
+			min-width: 20px;
+		}
+
+		.faq-answer-content {
+			padding: 16px 18px 20px 18px;
+			font-size: 0.95rem;
 		}
 	}
 </style>

@@ -37,9 +37,9 @@
 <script>
 	import { onMount } from 'svelte';
 
-	let conferenceURL = '/Conferencepage/index.html'; // Your actual conference page
+	let conferenceURL = '/conference/aac2025/'; // Your actual conference page
 
 	onMount(() => {
-		window.location.href = conferenceURL; // Redirects the user immediately
+		window.location.replace(conferenceURL); // Redirects the user immediately
 	});
 </script>

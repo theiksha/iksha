@@ -1,8 +1,4 @@
-<<<<<<< Updated upstream
-<section class="donate-section">
-=======
 <!-- <section class="donate-section">
->>>>>>> Stashed changes
   <div class="inner">
     <h1>Interested in the program? Get in touch with us!</h1>
 
@@ -10,22 +6,12 @@
       Contact Us
     </a>
   </div>
-<<<<<<< Updated upstream
-</section>
-
-<div class="row ycenter xcenter outer padded">
-  <p class="whited small">
-    © 2024 IKS and Heritage Association (IKSHA) | All Rights Reserved |
-    Email: contact@theiksha.org
-  </p>
-=======
 </section> -->
 
 <div class="row ycenter xcenter outer padded">
 	<p class="whited small">
 		© 2024 IKS and Heritage Association (IKSHA) | All Rights Reserved | Email: contact@theiksha.org
 	</p>
->>>>>>> Stashed changes
 </div>
 
 <style lang="sass">
@@ -83,9 +69,5 @@
 .outer
   width: 100%
   padding: 20px
-<<<<<<< Updated upstream
-  background: #f4943c    
-=======
   background: #f4943c
->>>>>>> Stashed changes
 </style>

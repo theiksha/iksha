@@ -61,69 +61,9 @@
 					<a href="/" class:active={isActive('/')}>HOME</a>
 				</p>
 
-<<<<<<< Updated upstream
-  <div class="row ycenter">
-    {#if $mediaClass === 'wide' || $mobileBar}
-    <nav class="row ycenter cgap16 mcol mright" on:click={handleClose} on:keydown={handleClose}>
-  <p class="small"><a class="blanker" href="/">HOME</a></p>
-  <p class="small"><a class="blanker" href="/about">ABOUT</a></p>
-  <p class="small"><a class="blanker" href="/diiksha">DIIKSHA</a></p>
-  <p class="small"><a class="blanker" href="/opportunities">OPPORTUNITIES</a></p>
-
-  <!-- ===== CONFERENCE Dropdown ===== -->
-  <div class="dropdown">
-    <p class="small dropdown-title">
-      <a class="blanker" href="/conference/">CONFERENCE</a>
-    </p>
-    <ul class="dropdown-menu">
-      <li><a class="blanker" href="/conference/">AAC 2026</a></li>
-
-      <!-- ===== AAC 2025 Nested Dropdown ===== -->
-      <li class="dropdown-sub">
-  <a class="blanker" href="/conference/aac2025">AAC 2025</a>
-  <ul class="dropdown-submenu">
-    <li><a class="blanker" href="/conference/aac2025/about.html">About</a></li>
-    <li><a class="blanker" href="/conference/aac2025/papersubmission.html">Paper Submission</a></li>
-    <li><a class="blanker" href="/conference/aac2025/schedule.html">Schedule</a></li>
-    <li><a class="blanker" href="/Documents/AAC_on_IKS_Brochure_2025.pdf">Brochure</a></li>
-  </ul>
-</li>
-    </ul>
-  </div>
-
-  <!-- ===== SAṄGAMA Dropdown ===== -->
-  <div class="dropdown">
-    <p class="small dropdown-title">
-      <a class="blanker" href="/sangama/">SAṄGAMA</a>
-    </p>
-    <ul class="dropdown-menu">
-      <li><a class="blanker" href="/sangama/overview">Overview</a></li>
-      <li><a class="blanker" href="/Documents/Sangama_2023.pdf">Sangama 2023</a></li>
-      <li><a class="blanker" href="/events/iksha-sangama-2024">Sangama 2024</a></li>
-    </ul>
-  </div>
-
-  <p class="small"><a class="blanker" href="/journal">JOURNAL</a></p>
-  <p class="small"><a class="blanker" href="/events">IKS NEWS AND EVENTS</a></p>
-  <p class="small"><a class="blanker" href="/contact">CONTACT</a></p>
-</nav>
-
-    {/if}
-    {#if $mediaClass !== 'wide'}
-      <button class="blanker" on:click={toggleMobilebar}>
-        {#if $mobileBar}
-        <Close/>
-        {:else}
-        <Menu/>
-        {/if}
-      </button>
-    {/if}
-  </div>
-=======
 				<p class="small">
 					<a href="/about" class:active={isActive('/about')}>ABOUT</a>
 				</p>
->>>>>>> Stashed changes
 
 				<p class="small">
 					<a href="/diiksha" class:active={isActive('/diiksha')}>DIIKSHA</a>
@@ -198,7 +138,7 @@
 						<li><a href="/aac2026">AAC 2026</a></li>
 
 						<li class="dropdown-sub">
-							<a href="/conference/aac2025">AAC 2025</a>
+							<a href="/conference/aac2025/">AAC 2025</a>
 
 							<ul class="dropdown-submenu">
 								<li><a href="/conference/aac2025/about.html">About</a></li>
@@ -273,58 +213,6 @@
    LINKS
 ========================= */
 
-<<<<<<< Updated upstream
-
-/* === Nested Dropdown Styles === */
-
-.dropdown-menu
-  li
-    font-size: 15px
-
-    a
-      display: block
-      padding: 0px 10px
-      color: #000
-      text-decoration: none
-      transition: color 0.3s ease
-
-      &:hover
-        color: #f5943d
-.dropdown-sub
-  position: relative  // Needed to position submenu
-
-  > a::after
-    
-    font-size: 12px
-    color: #000
-
-  &:hover > a::after
-    
-
-  &:hover > .dropdown-submenu
-    display: block
-
-.dropdown-submenu
-  display: none  // Hidden by default
-  position: absolute
-  top: 0
-  left: 100%    // Positions submenu to the right of parent
-  background: white
-  list-style: none
-  margin: 0
-  padding: 0
-  min-width: 180px
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1)
-  z-index: 1000
-
-  li
-    a
-      display: block
-      padding: 0px 10px
-      color: #000
-      text-decoration: none
-</style>
-=======
 	a {
 		text-decoration: none;
 		color: #000;
@@ -521,4 +409,3 @@
 		}
 	}
 </style>
->>>>>>> Stashed changes

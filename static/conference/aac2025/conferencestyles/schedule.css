@@ -4,7 +4,7 @@ body {
 }
 
 .schedule-section {
-  background: url('/Conferencepage/conferenceimages/schedule_background.png') no-repeat center center;
+  background: url('../conferenceimages/schedule_background.png') no-repeat center center;
   background-size: cover;
   padding: 20px 10px;
   border-radius: 12px;
